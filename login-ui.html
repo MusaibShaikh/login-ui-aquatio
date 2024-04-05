@@ -276,24 +276,43 @@
         }
 
         input[type=email], input[type=number], input[type=password], input[type=text] {
-            -moz-border-radius: 0;
-            -webkit-border-radius: 0;
-            border-radius: 0;
-            height: 28px;
-            width: 300px;
-            border: 1px solid #696969;
-            z-index: 3;
-            color: #000;
-            padding: 0 0 0 3px;
-            -moz-box-shadow: 0 0 0;
-            -webkit-box-shadow: 0 0 0;
-            box-shadow: 0 0 0;
-            margin-right: 3px
-        }
+    border-radius: 4px; /* Material Design usually has slightly rounded borders */
+    height: 36px; /* Standard Material Design height */
+    width: 300px; /* You can adjust the width as needed */
+    border: 1px solid #D2D2D2; /* Light grey border */
+    z-index: 3;
+    color: #000;
+    padding: 0 12px; /* Material Design usually has larger padding */
+    box-shadow: none; /* Material Design inputs do not typically have box shadows */
+    margin-right: 3px;
+    font-size: 16px; /* Standard Material Design font size */
+    background-color: #fff; /* Background color */
+    transition: box-shadow 0.2s, border-color 0.2s; /* Transition for focus effect */
+    line-height: 36px; /* Center text vertically */
+}
 
-            input[type=email]:focus, input[type=number]:focus, input[type=password]:focus, input[type=text]:focus, select:focus {
-                outline: 1px solid #4d90fe
-            }
+input[type=email]:focus, input[type=number]:focus, input[type=password]:focus, input[type=text]:focus {
+    border-color: #6200EE; /* Material Design primary color for focus */
+    box-shadow: 0 1px 0 0 #6200EE; /* Bottom border effect on focus */
+    outline: none; /* Removes the default focus outline */
+}
+
+/* Optional: Label to float above the input field on focus */
+input[type=email] + label, input[type=number] + label, input[type=password] + label, input[type=text] + label {
+    color: #999; /* Label color */
+    pointer-events: none; /* Allows click to pass through to the input */
+    position: absolute; /* Position it over the input */
+    left: 12px; /* Align with the text in the input */
+    top: 0; /* Position at the top of the input container */
+    transition: all 0.2s; /* Transition for the floating effect */
+    transform-origin: 0 0; /* Anchor transformation to the top-left */
+}
+
+input[type=email]:focus + label, input[type=number]:focus + label, input[type=password]:focus + label, input[type=text]:focus:not(:placeholder-shown) + label {
+    transform: scale(0.75) translateY(-36px); /* Scale down label and move up */
+    color: #6200EE; /* Label color on focus */
+}
+
 
         .accountButton {
             border: 1px solid #fff;
