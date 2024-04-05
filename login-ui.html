@@ -25,29 +25,23 @@
             display: block
         }
 
-        button {
-            width: auto;
-            min-width: 50px;
-            height: 32px;
-            margin-top: 2px;
-            -moz-border-radius: 0;
-            -webkit-border-radius: 0;
-            border-radius: 0;
-            background: #0078d4;
-            border: 1px solid #fff;
-            color: #fff;
-            transition: background 1s ease 0s;
-            font-size: 100%;
-            padding: 0 2px
-        }
+         button {
+     background-color: #212B36; /* Material Design primary color */
+     color: #fff; /* Text color */
+     border: none; /* No border */
+     padding: 8px 16px; /* Padding inside the button */
+     font-size: 16px; /* Font size */
+     text-transform: uppercase; /* Uppercase text */
+     border-radius: 4px; /* Slightly rounded borders */
+     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25); /* Shadow for depth */
+     transition: background-color 0.2s; /* Smooth transition for hover effect */
+ }
 
-            button:hover {
-                background: #0f3e83;
-                border: 1px solid #3079ed;
-                -moz-box-shadow: 0 0 0;
-                -webkit-box-shadow: 0 0 0;
-                box-shadow: 0 0 0
-            }
+     button:hover {
+         background-color: #7B1FA2; /* Darker shade of the primary color on hover */
+         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25); /* Larger shadow on hover */
+     }
+
 
         .buttons button {
             -moz-user-select: none;
