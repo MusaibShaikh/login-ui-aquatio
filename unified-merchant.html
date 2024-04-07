@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Sign up</title>
+  <link rel="icon" type="image/x-icon"
+    href="https://fiqmiscstorageaccount1.blob.core.windows.net/3pliqform/faviconV2.png" />
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+    .intro p {
+      display: none;
+    }
+
+    .intro:after {
+      content: "Creating new account";
+      font-style: normal;
+      font-weight: normal;
+      font-size: 12px;
+      line-height: 20px;
+      color: #676767;
+      display: block;
+    }
+
+    .intro:before {
+      content: "Sign up";
+      font-style: normal;
+      display: block;
+      font-size: 30px;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 30px;
+      line-height: 38px;
+      color: #262626;
+    }
+
+    .VerificationControl .emailVerificationControl_li {
+      list-style-type: none;
+    }
+
+    ul {
+      padding: 0;
+      list-style-type: none;
+    }
+
+    .helpLink {
+      display: none;
+    }
+
+    .element.style {
+      display: none;
+    }
+
+    .changeClaims {
+      display: none !important;
+    }
+
+    #verifying_blurb {
+      display: none;
+    }
+
+    /* #emailVerificationControl_but_change_claims {
+    display: none;
+} */
+    .attrEntry {
+      margin-bottom: 1rem;
+    }
+
+    #api {
+      margin: 16px 42px;
+    }
+
+    .textInput {
+      width: 100%;
+      max-width: 409px;
+      box-sizing: border-box;
+      padding: 0.6rem 0.6rem;
+      border-radius: 2px;
+      margin-top: 0.6rem;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    /* .buttons{
+			display: flex;
+			flex-direction: column;
+			font-family: Nunito Sans;
+			
+		} */
+
+    #cancel {
+      display: none;
+    }
+
+    .attrEntry {
+      font-size: 0.8rem;
+      font-family: Nunito Sans;
+      color: #262626;
+    }
+
+    #emailVerificationControl_success_message {
+      color: green;
+    }
+
+    #emailVerificationControl_error_message {
+      color: red;
+    }
+
+    #requiredFieldMissing,
+    #claimVerificationServerError {
+      color: red;
+    }
+
+    .error.itemLevel {
+      color: red;
+    }
+
+    #attributeList ul {
+      display: flex;
+      flex-direction: column;
+    }
+
+    #createAccount {
+      margin-left: 8px;
+    }
+
+    .extension_Name_li {
+      order: 1;
+    }
+
+    .extension_Role_li {
+      order: 2;
+    }
+
+    .extension_Company_li {
+      order: 3;
+    }
+
+    .emailVerificationControl_li {
+      order: 4;
+    }
+
+    .newPassword_li {
+      order: 5;
+    }
+
+    .reenterPassword_li {
+      order: 6;
+    }
+
+    #emailVerificationControl_but_change_claims {
+      display: none;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0.5rem 0.6rem;
+      border-radius: 2px;
+      border-radius: 2em;
+      background-color: #ef7f1a;
+      border: none;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    #emailVerificationControl_but_change_claims:disabled {
+      display: none;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0.6rem 0.6rem;
+      border-radius: 2px;
+      border-radius: 2em;
+      background-color: #ffffff;
+      border: none;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    #continue,
+    #emailVerificationControl_but_send_code,
+    #emailVerificationControl_but_verify_code,
+    #emailVerificationControl_but_send_new_code {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0.5rem 0.6rem;
+      border-radius: 2px;
+      border-radius: 2em;
+      background-color: #ef7f1a;
+      border: none;
+      color: #ffffff;
+      margin-bottom: 10px;
+      max-width: 213px;
+    }
+
+    #continue:disabled {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0.5rem 0.6rem;
+      border-radius: 2px;
+      border-radius: 2em;
+      background-color: #b6b3af;
+      border: none;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    #imgcenter {
+      margin: 0 43px;
+      height: 41px;
+    }
+
+    .textInput {
+      border: 1px solid #d9d9d9;
+      outline-color: #1e77e2;
+    }
+
+    .textInput:hover {
+      border-color: #1e77e2;
+    }
+
+    .error,
+    pageLevel {
+      color: red;
+      font-size: 12.8px;
+    }
+
+    body {
+      margin: 0;
+      font-family: Nunito Sans;
+      height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      background-color: #f0f2f5;
+      margin: 0;
+      min-height: 100vh;
+    }
+
+      .left-half {
+          flex: 60%;
+          background-image: url(https://raw.githubusercontent.com/MusaibShaikh/login-ui-aquatio/main/login-background.jpg);
+          background-position: center;
+          background-size: cover;
+      }
+
+    .right-half {
+      flex: 40%;
+    }
+
+    .cover {
+      margin: 0;
+      position: relative;
+      top: 50%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+
+<body>
+  <section class="container">
+    <div class="left-half"></div>
+    <div class="right-half">
+      <div class="cover">
+        <div class="form-banner">
+          <a href="https://aqto-client-dev.azurewebsites.net/">
+            <img id="imgcenter" alt="logo"
+              src="https://raw.githubusercontent.com/MusaibShaikh/login-ui-aquatio/main/aquatio_logo.svg" />
+          </a>
+        </div>
+        <div id="api" data-name="Unified"></div>
+        <div style="
+              text-align: left;
+              font-size: 14px;
+              color: #8c8c8c;
+              margin: 0 42px;
+            ">
+          <span>
+            <p>
+              View
+              <a href="https://3pliq.com/terms-conditions/" style="color: #1e77e2">Terms and Conditions</a>
+              and
+              <a href="https://3pliq.com/privacy-policy" style="color: #1e77e2">Privacy Policy</a>
+            </p>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+<script>
+  $(document).ready(function () {
+    $("#emailVerificationControl_but_change_claims").attr("disabled", true);
+    $("#emailVerificationControl_but_change_claims").css("display", "");
+    $("#emailVerificationControl_but_change_claims").css("display", "none");
+    $("#emailVerificationControl_but_change_claims").hide();
+    $("#continue").hide();
+    $("#newPassword:input").hide();
+    $("#reenterPassword:input").hide();
+    $("#newPassword_label").hide();
+    $("#reenterPassword_label").hide();
+    $("#givenName_label").hide();
+    $("#givenName").hide();
+    $("#surname_label").hide();
+    $("#surname").hide();
+    $("#extension_Company_label").hide();
+    $("#extension_Company").hide();
+    $("#jobTitle_label").hide();
+    $("#jobTitle").hide();
+    $("#extension_PhoneNumber_label").hide();
+    $("#extension_PhoneNumber").hide();
+    $("#extension_Role_label").hide();
+    $("#extension_Role").hide();
+    $(".Password").hide();
+    $("#extension_Role").val("Merchant");
+
+    document.addEventListener("keypress", function (e) {
+      if (e.keyCode === 13 || e.which === 13) {
+        e.preventDefault();
+        if (!$("#emailVerificationCode").val()) {
+          $("#continue").hide();
+          $("#newPassword:input").hide();
+          $("#reenterPassword:input").hide();
+          $("#newPassword_label").hide();
+          $("#reenterPassword_label").hide();
+          $("#emailVerificationControl_but_change_claims:button").hide();
+          $(".Password").hide();
+          $("#givenName_label").hide();
+          $("#givenName").hide();
+          $("#surname_label").hide();
+          $("#surname").hide();
+          $("#extension_Company_label").hide();
+          $("#extension_Company").hide();
+          $("#jobTitle_label").hide();
+          $("#jobTitle").hide();
+          $("#extension_PhoneNumber_label").hide();
+          $("#extension_PhoneNumber").hide();
+          $("#extension_Role_label").hide();
+          $("#extension_Role").hide();
+        } else {
+          $(".TextBox").show();
+          $(".Password").show();
+          $("#continue").show();
+          $("#newPassword:input").show();
+          $("#reenterPassword:input").show();
+          $("#newPassword_label").show();
+          $("#reenterPassword_label").show();
+          $("#givenName_label").show();
+          $("#givenName").show();
+          $("#surname_label").show();
+          $("#surname").show();
+          $("#extension_Company_label").show();
+          $("#extension_Company").show();
+          $("#jobTitle_label").show();
+          $("#jobTitle").show();
+          $(".changeClaims").hide();
+          $("#emailVerificationControl_but_change_claims:button").hide();
+          $(".changeClaims").css({ display: "none" });
+          $("#emailVerificationControl_but_change_claims:button").css({
+            display: "none",
+          });
+        }
+      }
+    });
+    $("#emailVerificationControl_but_verify_code").click(
+      "change",
+      function () {
+        if (!$("#emailVerificationCode").val()) {
+          $("#continue").hide();
+          $("#newPassword:input").hide();
+          $("#reenterPassword:input").hide();
+          $("#newPassword_label").hide();
+          $("#reenterPassword_label").hide();
+          $("#emailVerificationControl_but_change_claims:button").hide();
+          $(".Password").hide();
+          $("#givenName_label").hide();
+          $("#givenName").hide();
+          $("#surname_label").hide();
+          $("#surname").hide();
+          $("#extension_Company_label").hide();
+          $("#extension_Company").hide();
+          $("#jobTitle_label").hide();
+          $("#jobTitle").hide();
+          $("#extension_PhoneNumber_label").hide();
+          $("#extension_PhoneNumber").hide();
+          $("#extension_Role_label").hide();
+          $("#extension_Role").hide();
+        } else {
+          $(".TextBox").show();
+          $(".Password").show();
+          $("#continue").show();
+          $("#newPassword:input").show();
+          $("#reenterPassword:input").show();
+          $("#newPassword_label").show();
+          $("#reenterPassword_label").show();
+          $("#givenName_label").show();
+          $("#givenName").show();
+          $("#surname_label").show();
+          $("#surname").show();
+          $("#extension_Company_label").show();
+          $("#extension_Company").show();
+          $("#jobTitle_label").show();
+          $("#jobTitle").show();
+          $(".changeClaims").hide();
+          $("#emailVerificationControl_but_change_claims:button").hide();
+          $(".changeClaims").css({ display: "none" });
+          $("#emailVerificationControl_but_change_claims:button").css({
+            display: "none",
+          });
+        }
+      }
+    );
+  });
+  document.getElementById("continue").onclick = function () {
+    el = document.getElementById("passwordEntryMismatch");
+    evs = document.getElementById("emailVerificationControl_success_message");
+    evs.textContent = "E-mail address verified";
+  };
+
+
+</script>
+
+</html>
