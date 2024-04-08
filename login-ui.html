@@ -22,7 +22,7 @@
             text-align: left
         }
 
-        #panel, .pageLevel, .panel li, label {
+        .pageLevel, .panel li, label {
             display: block
         }
 
@@ -126,22 +126,6 @@
             color: #637381;
         }
 
-        div#background_branding_container, div#background_page_overlay {
-            flex:60%;
-            z-index: 0;
-            position: fixed;
-            left: 0;
-            overflow: hidden;
-            top: 0
-        }
-
-        div#background_branding_container {
-            background: #00abec;
-            height: 100%;
-            -webkit-animation: fadeIn 1s;
-            animation: fadeIn 1s
-        }
-
         *, .panel, body {
             margin: 0;
             padding: 0
@@ -151,13 +135,39 @@
             z-index: -999
         }
 
-        .panel, .panel_layout, .panel_layout_row, body, html {
+        .panel, body, html {
             height: 100%
+        }
+
+        .container {
+            display: flex;
+            background-color: #f0f2f5;
+            margin: 0;
+            min-height: 100vh;
+        }
+
+        .left-half {
+            flex: 60%;
+            background-image: url(https://raw.githubusercontent.com/MusaibShaikh/login-ui-aquatio/main/login-background.jpg);
+            background-position: center;
+            background-size: cover;
+        }
+
+        .panel{
+            flex:40%;
+        }
+
+        .cover {
+            margin: 0;
+            position: relative;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
         }
 
         #panel {
             border-left: 1px solid #fff;
-            flex:40%;
         }
 
         a {
@@ -212,17 +222,6 @@
             border: 1px solid #a61e0c !important
         }
 
-        img#background_background_image {
-            height: 100%;
-            width: 100%
-        }
-
-        div#background_page_overlay {
-            background: left top no-repeat fixed #f7f7f7;
-            height: 100%;
-            opacity: 1
-        }
-
         .panel {
             background: #fff;
             float: right;
@@ -245,40 +244,8 @@
             width: 100%;
         }
 
-    #panel_left, #panel_right {
-            display: inline-block;
-            border: 0;
-            height: 100%;
-            margin: 0
-        }
-
-        #panel_left {
-            padding: 0;
-        }
-
-        #panel_center {
-            border: 0;
-            height: 100%;
-            margin: 0 min-height: 100%;
-            padding: 0;
-            width: 100%;
-            display: flex !important;
-            justify-content: center;
-            align-items: flex-start;
-        }
-
         .hide {
             opacity: 0
-        }
-
-        .api_container {
-            display: inline-block;
-            padding-left: 0;
-            padding-top: 20%;
-            position: relative;
-            transition: padding .6s ease 0s;
-            width: 100%;
-            height: 100%;
         }
 
         select {
@@ -472,36 +439,13 @@
             .gianttext {
                 font-size: 1.2em
             }
-
-            div#background_branding_container {
-                display: none;
-                opacity: 0;
-                z-index: -999
+            .left-half{
+            display : none;
             }
 
-            div#background_page_overlay {
-                display: none;
-                z-index: -999
-            }
-
-            .panel_layout, .panel_layout_row {
-                width: 100%
-            }
-
-            #panel_left {
-                width: 40px
-            }
-
-            #panel_center {
-                width: calc(100% - 80px)
-            }
 
             .inner_container, .panel {
                 width: 100%
-            }
-
-            #panel_right {
-                display: none
             }
 
             .panel {
@@ -527,23 +471,7 @@
             #panel {
                 width: 100%
             }
-
-            #panel_layout_row {
-                width: 100%
-            }
-
-            #panel_left {
-                display: none
-            }
-
-            #panel_center {
-                width: 100%
-            }
-
-            .panel_layout {
-                width: 100%
-            }
-
+            
 
             .attrEntry .dropdown_single {
                 width: 100% !important
@@ -691,24 +619,19 @@
 
 </head>
 <body>
-    <div id="background_branding_container" data-tenant-branding-background-color="true">
-        <img id="background_background_image" data-tenant-branding-background="true" src="https://raw.githubusercontent.com/MusaibShaikh/login-ui-aquatio/main/login-background.jpg" alt="Illustration" aria-hidden="true" />
-    </div>
-    <div class="panel" id="panel">
-        <table class="panel_layout" role="presentation">
-            <tbody>
-                <tr class="panel_layout_row">
-                    <td id="panel_center">
-                        <div class="inner_container">
-                            <div class="api_container normaltext">
-                                <img alt="Company Logo" class="companyLogo" src="https://raw.githubusercontent.com/MusaibShaikh/login-ui-aquatio/main/aquatio_logo.svg " data-tenant-branding-logo="true" />
-                                <div id="api" role="main"></div>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <section class="container">
+        <div class="left-half"></div>
+        <div class="panel" id="panel">
+            <div class="cover">
+                <div class="form-banner">
+                    <a href="https://aqto-client-dev.azurewebsites.net/">
+                        <img id="imgcenter" alt="logo"
+                             src="https://raw.githubusercontent.com/MusaibShaikh/login-ui-aquatio/main/aquatio_logo.svg" />
+                    </a>
+                </div>
+            </div>
+            <div id="api" role="main"></div>
+        </div>
+    </section>
 </body>
 </html>
