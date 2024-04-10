@@ -264,7 +264,7 @@
             border: 1px solid #919EAB33;
             z-index: 3;
             color: #000;
-            padding: 0 0 0 3px;
+            padding: 0 30px 0 3px;
             -moz-box-shadow: 0 0 0;
             -webkit-box-shadow: 0 0 0;
             box-shadow: 0 0 0;
@@ -282,6 +282,11 @@
 
         .password-toggle{
             margin-left:-30px;
+        }
+
+        input[type=password]::-ms-reveal,
+        input[type=password]::-ms-clear {
+            display: none;
         }
 
 
