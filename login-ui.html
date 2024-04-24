@@ -608,12 +608,6 @@
     </section>
     <script>
 
-        const forgotPasswordLink = document.getElementById("forgotPassword");
-        const entryItems = document.getElementsByClassName("entry-item");
-        const passwordItems = document.getElementsByClassName("password-label");
-        passwordItems[0].removeChild(document.getElementById("forgotPassword"));
-        entryItems[1].append(forgotPasswordLink);
-
         // JavaScript code for adding show/hide password functionality
         const passwordInput = document.getElementById('password');
         const showHideIcon = document.createElement('span');
@@ -627,6 +621,14 @@
             showHideIcon.querySelector('i').classList.toggle('fa-eye');
             showHideIcon.querySelector('i').classList.toggle('fa-eye-slash');
         });
+
+        const forgotPasswordLink = document.getElementById("forgotPassword");
+        const entryItems = document.getElementsByClassName("entry-item");
+        const passwordItems = document.getElementsByClassName("password-label");
+        passwordItems[0].removeChild(document.getElementById("forgotPassword"));
+        entryItems[1].append(forgotPasswordLink);
+
+
 
     </script>
 </body>
