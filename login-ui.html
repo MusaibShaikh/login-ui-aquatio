@@ -277,6 +277,14 @@
                 outline: 1px solid #4d90fe
             }
 
+            input[type=password]::-ms-reveal,
+            input[type=password]::-ms-clear {
+                display: none;
+            }
+        #password {
+            padding-right: 30px !important;
+        }
+
         .accountButton {
             border: 1px solid #fff;
             color: #fff;
@@ -481,6 +489,9 @@
                 -webkit-box-shadow: 0 0 0;
                 box-shadow: 0 0 0;
             }
+        #password {
+            width: calc(100% - 30px) !important;
+        }
 
         #next {
             padding-left: 10px;
@@ -587,6 +598,8 @@
         .password-toggle {
             margin-left: -30px;
         }
+
+        #
         /* endinject */
     </style>
 
