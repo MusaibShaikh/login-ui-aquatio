@@ -143,19 +143,20 @@
 
         .panel {
             flex: 40%;
+            background-color: white;
         }
 
         .cover {
             margin: 0;
-            top:50%;
-            left:50%;
+            top: 50%;
+            left: 50%;
             transform: translateY(40%);
             -ms-transform: translateY(40%);
         }
 
         #imgcenter {
             height: 41px;
-            margin : 0 34px;
+            margin: 0 34px;
         }
 
         a {
@@ -413,8 +414,6 @@
             .left-half {
                 display: none;
             }
-
-
         }
 
 
@@ -480,7 +479,6 @@
                 -moz-box-shadow: 0 0 0;
                 -webkit-box-shadow: 0 0 0;
                 box-shadow: 0 0 0;
-                margin-bottom: 7px
             }
 
         #next {
@@ -515,7 +513,10 @@
 
         #forgotPassword {
             font-size: .75em;
-            padding-left: 5px
+            padding-left: 5px;
+            display: inline-block;
+            margin-left: calc(100% - 10.5em);
+            white-space: nowrap;
         }
 
         .passwordReqs {
@@ -573,10 +574,18 @@
             margin-top: 7px
         }
 
-        input::placeholder{
-            display:none;
+        #signInName {
+            margin-top: 2%;
         }
-        /* endinject */
+
+        label{
+            display:none !important;
+        }
+
+        .password-toggle {
+            margin-left: -30px;
+        }
+            /* endinject */
     </style>
 
 </head>
@@ -595,5 +604,28 @@
             </div>
         </div>
     </section>
+    <script>
+
+        const forgotPasswordLink = document.getElementById("forgotPassword");
+        const entryItems = document.getElementsByClassName("entry-item");
+        const passwordItems = document.getElementsByClassName("password-label");
+        passwordItems[0].removeChild(document.getElementById("forgotPassword"));
+        entryItems[1].append(forgotPasswordLink);
+
+        // JavaScript code for adding show/hide password functionality
+        const passwordInput = document.getElementById('password');
+        const showHideIcon = document.createElement('span');
+        showHideIcon.innerHTML = '<i class="fas fa-eye-slash"></i>';
+        showHideIcon.classList.add('password-toggle');
+        passwordInput.parentNode.appendChild(showHideIcon);
+
+        showHideIcon.addEventListener('click', () => {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            showHideIcon.querySelector('i').classList.toggle('fa-eye');
+            showHideIcon.querySelector('i').classList.toggle('fa-eye-slash');
+        });
+
+    </script>
 </body>
 </html>
