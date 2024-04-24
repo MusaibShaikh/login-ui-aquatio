@@ -13,7 +13,6 @@
     <meta name="GOOGLEBOT" content="NOARCHIVE">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style id="common">
         /* Following are generated styles via gulp. */
         /* inject: css */
@@ -137,7 +136,7 @@
 
         .left-half {
             flex: 60%;
-            background-image: url(https://cdn-fiq.azureedge.net/aqto/login-background.jpg);
+            background-image: url(https://raw.githubusercontent.com/MusaibShaikh/login-ui-aquatio/main/login-background.jpg);
             background-position: center;
             background-size: cover;
         }
@@ -148,15 +147,15 @@
 
         .cover {
             margin: 0;
-            top: 50%;
-            left: 50%;
+            top:50%;
+            left:50%;
             transform: translateY(40%);
             -ms-transform: translateY(40%);
         }
 
         #imgcenter {
             height: 41px;
-            margin: 0 34px;
+            margin : 0 34px;
         }
 
         a {
@@ -261,7 +260,7 @@
             height: 54px;
             width: 100%;
             border-radius: 8px;
-            border: 1px solid #919EAB33;
+            border: 1px solid #696969;
             z-index: 3;
             color: #000;
             padding: 0 0 0 3px;
@@ -272,26 +271,9 @@
             text-indent: 5px;
         }
 
-            input[type=email]:hover, input[type=number]:hover, input[type=password]:hover, input[type=text]:hover, select:hover {
-                outline: 1px solid #212B36;
-            }
-
             input[type=email]:focus, input[type=number]:focus, input[type=password]:focus, input[type=text]:focus, select:focus {
-                outline: 2px solid #212B36;
+                outline: 1px solid #4d90fe
             }
-
-        .password-toggle{
-            margin-left:-30px;
-        }
-
-        input[type=password]::-ms-reveal,
-        input[type=password]::-ms-clear {
-            display: none;
-        }
-
-        #password{
-            padding-right:30px !important;
-        }
 
         .accountButton {
             border: 1px solid #fff;
@@ -431,6 +413,8 @@
             .left-half {
                 display: none;
             }
+
+
         }
 
 
@@ -488,7 +472,7 @@
                 border-radius: 0;
                 height: 46px;
                 width: 100%;
-                border: 1px solid #919EAB33;
+                border: 1px solid #b8b8b8;
                 z-index: 3;
                 background: 0 0;
                 color: #000;
@@ -497,9 +481,6 @@
                 -webkit-box-shadow: 0 0 0;
                 box-shadow: 0 0 0;
                 margin-bottom: 7px
-            }
-            #password{
-                width : calc(100% - 30px) !important;
             }
 
         #next {
@@ -591,6 +572,10 @@
             vertical-align: top;
             margin-top: 7px
         }
+
+        input::placeholder{
+            display:none;
+        }
         /* endinject */
     </style>
 
@@ -603,27 +588,12 @@
                 <div class="form-banner">
                     <a href="https://aqto-client-dev.azurewebsites.net/">
                         <img id="imgcenter" alt="logo"
-                             src="https://cdn-fiq.azureedge.net/aqto/aquatio_logo.svg" />
+                             src="https://raw.githubusercontent.com/MusaibShaikh/login-ui-aquatio/main/aquatio_logo.svg" />
                     </a>
                 </div>
                 <div id="api" role="main"></div>
             </div>
         </div>
     </section>
-    <script>
-        // JavaScript code for adding show/hide password functionality
-        const passwordInput = document.getElementById('password');
-        const showHideIcon = document.createElement('span');
-        showHideIcon.innerHTML = '<i class="fas fa-eye-slash"></i>';
-        showHideIcon.classList.add('password-toggle');
-        passwordInput.parentNode.appendChild(showHideIcon);
-
-        showHideIcon.addEventListener('click', () => {
-            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-            passwordInput.setAttribute('type', type);
-            showHideIcon.querySelector('i').classList.toggle('fa-eye');
-            showHideIcon.querySelector('i').classList.toggle('fa-eye-slash');
-        });
-    </script>
 </body>
 </html>
