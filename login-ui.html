@@ -651,6 +651,48 @@
         passwordItems[0].removeChild(document.getElementById("forgotPassword"));
         entryItems[1].append(forgotPasswordLink);
 
+        document.addEventListener('DOMContentLoaded', () => {
+            const apiElement = document.getElementById('api');
+
+            // Remove the "Sign in with your social account" section
+            const socialAccountSection = apiElement.querySelector('.claims-provider-list-buttons');
+            if (socialAccountSection) {
+                socialAccountSection.remove();
+            }
+
+            // Change Google and Microsoft buttons to logos
+            const googleButton = document.getElementById('GoogleExchange');
+            const microsoftButton = document.getElementById('MicrosoftExchange');
+
+            if (googleButton) {
+                googleButton.innerHTML = '<img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Google_2015_logo.svg" alt="Google Logo" style="height: 24px;">';
+                googleButton.style.background = 'transparent';
+                googleButton.style.border = 'none';
+            }
+
+            if (microsoftButton) {
+                microsoftButton.innerHTML = '<img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft Logo" style="height: 24px;">';
+                microsoftButton.style.background = 'transparent';
+                microsoftButton.style.border = 'none';
+            }
+
+            // Move the OR divider and logo buttons below the terms of service
+            const termsOfService = document.getElementById('termsOfservice');
+            const divider = apiElement.querySelector('.divider');
+            const optionsDiv = document.createElement('div');
+            optionsDiv.style.textAlign = 'center';
+            optionsDiv.style.marginTop = '20px';
+
+            if (googleButton && microsoftButton) {
+                optionsDiv.appendChild(googleButton);
+                optionsDiv.appendChild(microsoftButton);
+            }
+
+            if (termsOfService && divider) {
+                termsOfService.after(divider);
+                divider.after(optionsDiv);
+            }
+        });
 
 
     </script>
