@@ -632,7 +632,7 @@
                 </div>
                 <div id="api" role="main"></div>
                 <div id="termsOfservice">
-                    By signing in, you are agreeing to our <a href="https://aqtoapp.test.fulfillmentiq.com/termsofservice/" target="_blank">Terms of Service</a>
+                    By signing in, you are agreeing to our <a id="termsLink" href="#" target="_blank">Terms of Service</a>
                 </div>
                 <div style="display: flex; align-items: center; margin: 20px 0;">
                     <hr style="flex: 1; border: none; border-top: 1px dotted #ccc; margin: 0 10px;" />
@@ -652,6 +652,19 @@
         </div>
     </section>
     <script>
+ function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Extract the redirect_uri from the URL
+        const redirectUri = getQueryParam('redirect_uri');
+
+        // If the redirect_uri is found, update the Terms of Service link
+        if (redirectUri) {
+            const termsLink = document.getElementById('termsLink');
+            termsLink.href = `${redirectUri}/termsofservice`;
+        }
 
         // JavaScript code for adding show/hide password functionality
         const passwordInput = document.getElementById('password');
